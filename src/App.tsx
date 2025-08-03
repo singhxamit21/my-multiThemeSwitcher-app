@@ -4,13 +4,20 @@ import { useSelector } from 'react-redux';
 import { theme1, theme2, theme3 } from './themes/themes';
 import { Suspense, lazy } from 'react';
 
+
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 
+const themes = {
+  theme1,
+  theme2,
+  theme3,
+};
+
 const App = () => {
- const currentTheme = useSelector((state: any) => state.theme.currentTheme) as keyof typeof themes;
-  const themes = { theme1, theme2, theme3 };
+
+  const currentTheme = useSelector((state: any) => state.theme.currentTheme) as keyof typeof themes;
   const activeTheme = themes[currentTheme];
 
   return (
