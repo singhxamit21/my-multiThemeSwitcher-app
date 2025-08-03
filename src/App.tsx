@@ -9,7 +9,7 @@ const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 
 const App = () => {
-  const currentTheme = useSelector((state: any) => state.theme.currentTheme);
+ const currentTheme = useSelector((state: any) => state.theme.currentTheme) as keyof typeof themes;
   const themes = { theme1, theme2, theme3 };
   const activeTheme = themes[currentTheme];
 
